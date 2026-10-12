@@ -4,28 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mohamed El Hedi Bahri</title>
-<meta name="description" content="Mohamed El Hedi Bahri, Hill Assistant Professor in the Department of Mathematics at Rutgers University. Rigorous statistical mechanics.">
+<meta name="description" content="Mohamed El Hedi Bahri, Hill Assistant Professor in the Department of Mathematics at Rutgers University. Rigorous statistical mechanics, the Bose gas and Lee–Yang zeros.">
 <link rel="icon" href="data:,">
 <style>
   :root {
     --paper: #ffffff;
-    --ink: #23252a;
-    --muted: #5e6269;
-    --link: #1d4f9a;
-    --fill-bg: #fff0a3;
-    --fill-ink: #3b3000;
-    --key: 4.75rem;
-    --key-gap: 0.75rem;
+    --ink: #1f2023;
+    --muted: #5a5d63;
+    --link: #07608f;
+    --rule: #1f2023;
+    --when: 7rem;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #17191d;
-      --ink: #e3e4e6;
-      --muted: #a3a7ae;
-      --link: #a3c1ff;
-      --fill-bg: #574a12;
-      --fill-ink: #fff0b8;
+      --paper: #16181b;
+      --ink: #e4e4e2;
+      --muted: #a4a8ae;
+      --link: #7fc4ec;
+      --rule: #7d828a;
     }
   }
 
@@ -35,54 +32,17 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: "Palatino Linotype", Palatino, "TeX Gyre Pagella", "URW Palladio L", P052, "Book Antiqua", Georgia, serif;
-    font-size: 1.125rem;
-    line-height: 1.6;
+    font-family: "Palatino Linotype", Palatino, "URW Palladio L", "TeX Gyre Pagella", P052, "Book Antiqua", Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.5;
     -webkit-text-size-adjust: 100%;
   }
 
   .page {
-    max-width: 38rem;
+    max-width: 44rem;
     margin: 0 auto;
-    padding: 4.5rem 1.5rem 3rem;
+    padding: 4rem 1.5rem 3rem;
   }
-
-  header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 400;
-    line-height: 1.1;
-    margin: 0 0 0.6rem;
-  }
-  .position { margin: 0; color: var(--muted); }
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 1.5rem;
-    margin: 1rem 0 0;
-  }
-  .photo {
-    flex: none;
-    width: 8.5rem;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    border-radius: 2px;
-  }
-
-  /* Section headings in small capitals, as in amsart. */
-  h2 {
-    font-size: 1.2rem;
-    font-weight: 400;
-    font-variant-caps: small-caps;
-    letter-spacing: 0.05em;
-    margin: 2.75rem 0 0.75rem;
-  }
-  p { margin: 0 0 1rem; }
 
   a {
     color: var(--link);
@@ -96,43 +56,98 @@
     border-radius: 2px;
   }
 
-  /* Lists with a short key (year, course number) hanging in a left column. */
-  .keyed { list-style: none; margin: 0; padding: 0; }
-  .keyed li {
-    display: grid;
-    grid-template-columns: var(--key) 1fr;
-    column-gap: var(--key-gap);
-    margin: 0 0 0.9rem;
-  }
-  .keyed .key { color: var(--muted); white-space: nowrap; }
+  p { margin: 0; }
+  sup { line-height: 0; }
   .nowrap { white-space: nowrap; }
-  .keyed.compact li { margin-bottom: 0.3rem; }
-  .title { display: block; }
-  .meta { display: block; color: var(--muted); }
 
-  address { font-style: normal; }
+  /* Centered heading, as on the first page of the CV. */
+  header { text-align: center; }
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 400;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    margin: 0 0 0.6rem;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 1.75rem;
+    margin-top: 0.4rem;
+  }
+  .photo {
+    display: block;
+    width: 8rem;
+    margin: 0 auto 1.25rem;
+    border-radius: 2px;
+  }
+
+  /* Section headings in small capitals over a rule, as in the CV. */
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.1rem;
+    margin: 2.4rem 0 0.75rem;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 1rem 0 0.4rem;
+  }
+
+  /* Dated entries, with the dates in a left column. */
+  .entries {
+    display: grid;
+    grid-template-columns: var(--when) 1fr;
+    column-gap: 1rem;
+    row-gap: 0.6rem;
+    margin: 0;
+  }
+  .entries dt { grid-column: 1; }
+  .entries dd { grid-column: 2; margin: 0; }
+  .hang { padding-left: 1.25em; text-indent: -1.25em; }
+
+  /* Numbered papers and bulleted items, with a hanging label. */
+  .papers, .bullets { list-style: none; margin: 0; padding: 0; }
+  .papers { counter-reset: paper; }
+  .papers li, .bullets li {
+    position: relative;
+    padding-left: 2.4rem;
+    margin: 0 0 0.6rem;
+  }
+  .papers li { counter-increment: paper; }
+  .papers li::before {
+    content: "[" counter(paper) "]";
+    position: absolute;
+    left: 0;
+  }
+  .bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0.7rem;
+  }
+  .papers a, .bullets a { overflow-wrap: anywhere; }
 
   footer {
-    margin-top: 3.5rem;
+    margin-top: 3rem;
     color: var(--muted);
-    font-size: 0.95rem;
-  }
-
-  /* Highlights text still to be filled in. Delete class="fill" once replaced. */
-  .fill {
-    background: var(--fill-bg);
-    color: var(--fill-ink);
-    border-radius: 2px;
-    padding: 0 0.25em;
+    font-size: 0.9rem;
   }
 
   @media (max-width: 36rem) {
-    :root { --key-gap: 0.6rem; }
-    body { font-size: 1.0625rem; }
     .page { padding: 2.75rem 1rem 2rem; }
-    header { flex-direction: column-reverse; gap: 1.25rem; }
-    h1 { font-size: 2.05rem; }
-    .photo { width: 7rem; }
+    h1 { font-size: 1.85rem; }
+    .entries { grid-template-columns: 1fr; row-gap: 0; }
+    .entries dt { color: var(--muted); margin-top: 0.7rem; }
+    .entries dt:first-child { margin-top: 0; }
+    .entries dd { grid-column: 1; }
+    .papers li, .bullets li { padding-left: 2.1rem; }
   }
 </style>
 </head>
@@ -140,63 +155,156 @@
 <div class="page">
 
   <header>
-    <div>
-      <h1>Mohamed El Hedi Bahri</h1>
-      <p class="position">Hill Assistant Professor<br>Department of Mathematics, <span class="nowrap">Rutgers University</span></p>
-      <p class="links">
-        <a href="mailto:mbahri@math.rutgers.edu">mbahri@math.rutgers.edu</a>
-        <a href="cv.pdf">CV</a>
-      </p>
-    </div>
     <!-- To add a photo, put photo.jpg next to this file and delete the comment markers around the next line.
     <img class="photo" src="photo.jpg" alt="Mohamed El Hedi Bahri">
     -->
+    <h1>Mohamed El Hedi Bahri</h1>
+    <p>Hill Assistant Professor</p>
+    <p>Department of Mathematics, <span class="nowrap">Rutgers University</span></p>
+    <p>Hill Center, <span class="nowrap">110 Frelinghuysen Road,</span> <span class="nowrap">Piscataway, NJ 08854, USA</span></p>
+    <p class="links">
+      <a href="mailto:mbahri@math.rutgers.edu">mbahri@math.rutgers.edu</a>
+      <a href="https://orcid.org/0000-0003-4987-4406">ORCID 0000-0003-4987-4406</a>
+      <a href="cv.pdf">CV (PDF)</a>
+    </p>
   </header>
 
   <main>
 
     <section id="research">
-      <h2>Research</h2>
-      <p>My research is in rigorous statistical mechanics. I work on Lee&ndash;Yang zeros of grand canonical partition functions, the analyticity of the infinite-volume pressure, and the uniqueness of Gibbs measures. I also work on the ground state of the Bose gas, in particular on Lieb&rsquo;s Simplified Approach and the Lee&ndash;Huang&ndash;Yang formula.</p>
+      <h2>Research Interests</h2>
+      <p>Rigorous statistical mechanics. The Bose gas, Lieb’s Simplified Approach and the <span class="nowrap">Lee–Huang–Yang</span> formula. <span class="nowrap">Lee–Yang</span> zeros, phase transitions and particle-number fluctuations.</p>
+    </section>
+
+    <section id="appointments">
+      <h2>Appointments</h2>
+      <dl class="entries">
+        <dt>2024–present</dt>
+        <dd>
+          <p>Hill Assistant Professor (postdoctoral position), Department of Mathematics, Rutgers University.</p>
+          <p>Working with Ian Jauslin and Joel L.&nbsp;Lebowitz.</p>
+        </dd>
+        <dt>2023–2024</dt>
+        <dd><p>Post-Graduate Researcher, Department of Mechanical and Aerospace Engineering, Princeton University.</p></dd>
+      </dl>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <dl class="entries">
+        <dt>2023</dt>
+        <dd>
+          <p><b>Ph.D.</b>, Mechanical and Aerospace Engineering, Princeton University.</p>
+          <p>Specialization in statistical mechanics, field theory and elasticity.</p>
+          <p>Thesis <cite>Thermal fluctuations of active and anisotropic elastic membranes</cite>, adviser Andrej Košmrlj, defended February 27, 2023.</p>
+          <p>Research project with Michael Aizenman on partial differential inequalities for the random-cluster model, toward the sharpness of its phase transition. Proved the analogue of the “<i>ϕ</i><sup>3</sup>” inequality of Aizenman and Barsky.</p>
+        </dd>
+        <dt>2014</dt>
+        <dd>
+          <p><b>B.S.</b>, Mathematics and Physics, Rutgers University, New Brunswick.</p>
+          <p>Double major, summa cum laude, with highest honors in mathematics and in physics.</p>
+          <p>Joint senior thesis in mathematics and physics, <cite>Einstein’s relativity theory</cite>, advisers Michael Kiessling and Nataša Šešum. A study of the foundations and assumptions of general relativity, with an exploration of renormalization.</p>
+        </dd>
+      </dl>
+    </section>
+
+    <section id="honors">
+      <h2>Honors and Awards</h2>
+      <dl class="entries">
+        <dt>2017</dt><dd>NSF Graduate Research Fellowship Program, Honorable Mention.</dd>
+        <dt>2014</dt><dd>Joseph P.&nbsp;Bradley Memorial Prize in Mathematics, Rutgers University.</dd>
+        <dt>2014</dt><dd>Rutgers Academic Excellence Award.</dd>
+        <dt>2013</dt><dd>Phi Beta Kappa.</dd>
+        <dt>2013</dt><dd>Weill Scholarship (Mathematics), Rutgers University.</dd>
+        <dt>2012</dt><dd>Richard J.&nbsp;Plano Summer Research Internship (Physics), Rutgers University.</dd>
+        <dt>2011</dt><dd>Rutgers Excellence Award.</dd>
+      </dl>
     </section>
 
     <section id="papers">
       <h2>Papers</h2>
-      <ol class="keyed">
-        <li>
-          <span class="key">2026</span>
-          <div>
-            <span class="title"><span class="fill">Title of the Lee&ndash;Huang&ndash;Yang paper</span></span>
-            <span class="meta">With Ian Jauslin. Preprint, <a class="fill" href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a>.</span>
-          </div>
-        </li>
-        <li>
-          <span class="key">2026</span>
-          <div>
-            <span class="title"><span class="fill">Title of the Gibbs-measure paper</span></span>
-            <span class="meta">With Ian Jauslin and Joel L. Lebowitz. Preprint, <a class="fill" href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a>.</span>
-          </div>
-        </li>
+      <!-- The numbers [1], [2], ... are added automatically in list order. -->
+      <ol class="papers">
+        <li>M.&nbsp;E.&nbsp;H.&nbsp;Bahri and I.&nbsp;Jauslin, <cite>The <span class="nowrap">Lee–Huang–Yang</span> formula for the hard-core Simple Equation</cite>. Manuscript (2026). To be submitted to Commun. Math. Phys.</li>
+        <li>M.&nbsp;E.&nbsp;H.&nbsp;Bahri, I.&nbsp;Jauslin and J.&nbsp;L.&nbsp;Lebowitz, <cite><span class="nowrap">Lee–Yang</span> zeros and particle fluctuations</cite>, <a href="https://arxiv.org/abs/2607.26975">arXiv:2607.26975</a> (2026). Under review at J.&nbsp;Stat. Phys.</li>
+        <li>M.&nbsp;E.&nbsp;H.&nbsp;Bahri, S.&nbsp;Sarkar, D.&nbsp;A.&nbsp;Matoz-Fernandez and A.&nbsp;Košmrlj, <cite>A new perspective on thermally fluctuating 2D elastic membranes: introducing odd elastic moduli and non-equilibrium effects</cite>, <a href="https://arxiv.org/abs/2307.05749">arXiv:2307.05749</a> (2023). Under review at Phys. Rev. Lett.</li>
+        <li>S.&nbsp;Sarkar, M.&nbsp;E.&nbsp;H.&nbsp;Bahri and A.&nbsp;Košmrlj, <cite>Statistical mechanics of nanotubes</cite>, <a href="https://arxiv.org/abs/2305.14602">arXiv:2305.14602</a> (2023). Under review at Phys. Rev. B.</li>
+        <li>M.&nbsp;E.&nbsp;H.&nbsp;Bahri, S.&nbsp;Sarkar and A.&nbsp;Košmrlj, <cite>Mechanical properties of fluctuating elastic membranes under uni-axial tension</cite>, <a href="https://arxiv.org/abs/2209.09350">arXiv:2209.09350</a> (2022). Under review at Phys. Rev. B.</li>
+        <li>M.&nbsp;E.&nbsp;H.&nbsp;Bahri and Ya.&nbsp;G.&nbsp;Sinai, <cite>Statistical mechanics of freely fluctuating two-dimensional elastic crystals</cite>, J.&nbsp;Stat. Phys. <b>180</b> (2020), 739–748, <a href="https://doi.org/10.1007/s10955-020-02512-4">doi:10.1007/s10955-020-02512-4</a>. Special issue in honor of Joel L.&nbsp;Lebowitz.</li>
       </ol>
+
+      <h3>In preparation</h3>
+      <ul class="bullets">
+        <li>M.&nbsp;E.&nbsp;H.&nbsp;Bahri, I.&nbsp;Jauslin and J.&nbsp;L.&nbsp;Lebowitz, <cite>The occurrence of a phase transition from the limiting density of <span class="nowrap">Lee–Yang</span> zeros</cite>.</li>
+      </ul>
+
+      <h3>Thesis</h3>
+      <ul class="bullets">
+        <li>M.&nbsp;E.&nbsp;H.&nbsp;Bahri, <cite>Thermal fluctuations of active and anisotropic elastic membranes</cite>, Ph.D. thesis, Princeton University (2023). Available on <a href="https://www.proquest.com/openview/030187cc17712393e747e6d84c6fe0fc/1?pq-origsite=gscholar&amp;cbl=18750&amp;diss=y">ProQuest</a>.</li>
+      </ul>
+    </section>
+
+    <section id="talks">
+      <h2>Talks</h2>
+      <dl class="entries">
+        <dt>Oct 2023</dt><dd><cite>A new perspective on thermally fluctuating 2D elastic membranes: introducing odd elastic moduli and non-equilibrium effects</cite>. New Trends in Nonequilibrium Statistical Mechanics, 2nd Course, Ettore Majorana Foundation and Centre for Scientific Culture, Erice, Italy.</dd>
+        <dt>Oct 2023</dt><dd><cite>Critical properties of fluctuating elastic membranes</cite>. Seminar, Department of Mathematics and Physics, Università Roma Tre, Rome, Italy.</dd>
+        <dt>Mar 2023</dt><dd><cite>Scaling of moduli of active and thermal elastic membranes</cite>. APS March Meeting, Las Vegas, NV.</dd>
+        <dt>Dec 2022</dt><dd><cite>Perturbing the elastic <span class="nowrap">Aronovitz–Lubensky</span> fixed point with odd elastic moduli</cite>. Statistical Mechanics Conference, Rutgers University.</dd>
+        <dt>Mar 2022</dt><dd><cite>Statistical mechanics of thermalized odd elastic membranes</cite>. APS March Meeting, Chicago, IL.</dd>
+        <dt>Mar 2021</dt><dd><cite>Statistical mechanics of 2D sheets under uniaxial tension</cite>. APS March Meeting, virtual.</dd>
+        <dt>May 2019</dt><dd><cite>Influence of thermal fluctuations on the mechanical properties of 2D anisotropic materials</cite>. Statistical Mechanics Conference, Rutgers University.</dd>
+        <dt>Mar 2019</dt><dd><cite>Statistical mechanics of anisotropic 2D sheets</cite>. APS March Meeting, Boston, MA.</dd>
+        <dt>Dec 2018</dt><dd><cite>Renormalization of elastic moduli of 2D crystals</cite>. Statistical Mechanics Conference, Rutgers University.</dd>
+        <dt>Mar 2018</dt><dd><cite>Poisson’s ratio of thermalized sheets</cite>. APS March Meeting, Los Angeles, CA.</dd>
+      </dl>
+
+      <h3>Poster</h3>
+      <dl class="entries">
+        <dt>2019</dt><dd><cite>Influence of thermal fluctuations on the mechanical properties of 2D anisotropic materials</cite>. Frontiers in Applied and Computational Mathematics (FACM ’19) and 11th Northeast Complex Fluids and Soft Matter Workshop (NCS 11).</dd>
+      </dl>
     </section>
 
     <section id="teaching">
       <h2>Teaching</h2>
-      <ul class="keyed compact">
-        <li><span class="key">Math 135</span><span>Calculus I</span></li>
-        <li><span class="key">Math 244</span><span>Differential Equations for Engineering and Physics</span></li>
-        <li><span class="key">Math 250</span><span>Introductory Linear Algebra</span></li>
-      </ul>
+      <dl class="entries">
+        <dt>2024–present</dt>
+        <dd>
+          <p><b>Rutgers University</b>, Department of Mathematics</p>
+          <p class="hang">Calculus I (01:640:135), Fall 2024, Fall 2025 and Fall 2026 (two sections).</p>
+          <p class="hang">Introductory Linear Algebra (01:640:250), Spring 2025, Fall 2025 and Spring 2026.</p>
+          <p class="hang">Differential Equations for Engineering and Physics (01:640:244), Spring 2025.</p>
+        </dd>
+        <dt>2018–2020</dt>
+        <dd>
+          <p><b>Princeton University</b>, Department of Mechanical and Aerospace Engineering, Assistant in Instruction</p>
+          <p class="hang">Modern Solid Mechanics (MAE 223, Prof. Andrej Košmrlj), Fall 2018, Fall 2019 and Fall 2020.</p>
+          <p class="hang">Introduction to Engineering Dynamics (MAE 206, Prof. Anirudha Majumdar), Spring 2019.</p>
+          <p class="hang">Biomechanics and Biomaterials (MAE 344, Prof. Daniel Cohen), Spring 2018.</p>
+        </dd>
+        <dt>2014–2015</dt>
+        <dd>
+          <p><b>Rutgers University</b>, Department of Physics and Astronomy, laboratory instructor</p>
+          <p class="hang">Analytical Physics Laboratory in electrodynamics for engineering students, one section in 2014 and two sections in Fall 2015.</p>
+          <p class="hang">General Physics Laboratory in electrodynamics for biology and chemistry students, two sections in Spring 2015.</p>
+        </dd>
+      </dl>
     </section>
 
-    <section id="address">
-      <h2>Address</h2>
-      <address>
-        Department of Mathematics, <span class="nowrap">Rutgers University</span><br>
-        Hill Center, room <span class="fill">XXX</span><br>
-        110 Frelinghuysen Road<br>
-        Piscataway, NJ 08854-8019, USA
-      </address>
+    <section id="mentoring">
+      <h2>Research Mentoring</h2>
+      <dl class="entries">
+        <dt>2018–2021</dt><dd>Mentor of undergraduate summer researchers at Princeton in the Mechanical and Aerospace Engineering Practical Research Experience and the PRISM/PCCM Research Experience for Undergraduates, summers of 2018, 2019, 2020 and 2021.</dd>
+      </dl>
+    </section>
+
+    <section id="service">
+      <h2>Service and Outreach</h2>
+      <dl class="entries">
+        <dt>2024–present</dt><dd>Helped organize four Statistical Mechanics Conferences at Rutgers University.</dd>
+        <dt>2022–present</dt><dd>Volunteer letter writer for the Committee of Young Scientists of the Committee of Concerned Scientists, which writes to governments and organizations on behalf of imprisoned or persecuted scientists and academics.</dd>
+        <dt>2023</dt><dd>Volunteer tutor in the adult education program of the Trenton Area Soup Kitchen, January to February 2023, teaching arithmetic, basic algebra and English comprehension to adults preparing for a high school equivalency diploma.</dd>
+      </dl>
     </section>
 
   </main>
