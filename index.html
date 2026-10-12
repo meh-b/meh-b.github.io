@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed El Hedi Bahri</title>
+<meta name="description" content="Mohamed El Hedi Bahri, Hill Assistant Professor in the Department of Mathematics at Rutgers University. Rigorous statistical mechanics.">
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #23252a;
+    --muted: #5e6269;
+    --link: #1d4f9a;
+    --fill-bg: #fff0a3;
+    --fill-ink: #3b3000;
+    --key: 4.75rem;
+    --key-gap: 0.75rem;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #17191d;
+      --ink: #e3e4e6;
+      --muted: #a3a7ae;
+      --link: #a3c1ff;
+      --fill-bg: #574a12;
+      --fill-ink: #fff0b8;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Palatino Linotype", Palatino, "TeX Gyre Pagella", "URW Palladio L", P052, "Book Antiqua", Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .page {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 3rem;
+  }
+
+  header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 0.6rem;
+  }
+  .position { margin: 0; color: var(--muted); }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    margin: 1rem 0 0;
+  }
+  .photo {
+    flex: none;
+    width: 8.5rem;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  /* Section headings in small capitals, as in amsart. */
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.05em;
+    margin: 2.75rem 0 0.75rem;
+  }
+  p { margin: 0 0 1rem; }
+
+  a {
+    color: var(--link);
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.2em;
+  }
+  a:hover { text-decoration-thickness: 0.12em; }
+  a:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Lists with a short key (year, course number) hanging in a left column. */
+  .keyed { list-style: none; margin: 0; padding: 0; }
+  .keyed li {
+    display: grid;
+    grid-template-columns: var(--key) 1fr;
+    column-gap: var(--key-gap);
+    margin: 0 0 0.9rem;
+  }
+  .keyed .key { color: var(--muted); white-space: nowrap; }
+  .nowrap { white-space: nowrap; }
+  .keyed.compact li { margin-bottom: 0.3rem; }
+  .title { display: block; }
+  .meta { display: block; color: var(--muted); }
+
+  address { font-style: normal; }
+
+  footer {
+    margin-top: 3.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  /* Highlights text still to be filled in. Delete class="fill" once replaced. */
+  .fill {
+    background: var(--fill-bg);
+    color: var(--fill-ink);
+    border-radius: 2px;
+    padding: 0 0.25em;
+  }
+
+  @media (max-width: 36rem) {
+    :root { --key-gap: 0.6rem; }
+    body { font-size: 1.0625rem; }
+    .page { padding: 2.75rem 1rem 2rem; }
+    header { flex-direction: column-reverse; gap: 1.25rem; }
+    h1 { font-size: 2.05rem; }
+    .photo { width: 7rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>Mohamed El Hedi Bahri</h1>
+      <p class="position">Hill Assistant Professor<br>Department of Mathematics, <span class="nowrap">Rutgers University</span></p>
+      <p class="links">
+        <a href="mailto:mbahri@math.rutgers.edu">mbahri@math.rutgers.edu</a>
+        <a href="cv.pdf">CV</a>
+      </p>
+    </div>
+    <!-- To add a photo, put photo.jpg next to this file and delete the comment markers around the next line.
+    <img class="photo" src="photo.jpg" alt="Mohamed El Hedi Bahri">
+    -->
+  </header>
+
+  <main>
+
+    <section id="research">
+      <h2>Research</h2>
+      <p>My research is in rigorous statistical mechanics. I work on Lee&ndash;Yang zeros of grand canonical partition functions, the analyticity of the infinite-volume pressure, and the uniqueness of Gibbs measures. I also work on the ground state of the Bose gas, in particular on Lieb&rsquo;s Simplified Approach and the Lee&ndash;Huang&ndash;Yang formula.</p>
+    </section>
+
+    <section id="papers">
+      <h2>Papers</h2>
+      <ol class="keyed">
+        <li>
+          <span class="key">2026</span>
+          <div>
+            <span class="title"><span class="fill">Title of the Lee&ndash;Huang&ndash;Yang paper</span></span>
+            <span class="meta">With Ian Jauslin. Preprint, <a class="fill" href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a>.</span>
+          </div>
+        </li>
+        <li>
+          <span class="key">2026</span>
+          <div>
+            <span class="title"><span class="fill">Title of the Gibbs-measure paper</span></span>
+            <span class="meta">With Ian Jauslin and Joel L. Lebowitz. Preprint, <a class="fill" href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a>.</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul class="keyed compact">
+        <li><span class="key">Math 135</span><span>Calculus I</span></li>
+        <li><span class="key">Math 244</span><span>Differential Equations for Engineering and Physics</span></li>
+        <li><span class="key">Math 250</span><span>Introductory Linear Algebra</span></li>
+      </ul>
+    </section>
+
+    <section id="address">
+      <h2>Address</h2>
+      <address>
+        Department of Mathematics, <span class="nowrap">Rutgers University</span><br>
+        Hill Center, room <span class="fill">XXX</span><br>
+        110 Frelinghuysen Road<br>
+        Piscataway, NJ 08854-8019, USA
+      </address>
+    </section>
+
+  </main>
+
+  <footer>Last updated October 2026.</footer>
+
+</div>
+</body>
+</html>
