@@ -1,0 +1,244 @@
+/* Shared style for every page of the site. */
+
+:root {
+  --paper: #ffffff;
+  --ink: #1d1e21;
+  --muted: #5c5f66;
+  --accent: #07608f;
+  --rule: #dfe0e3;
+  --measure: 40rem;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #141619;
+    --ink: #e5e4e0;
+    --muted: #a3a7ad;
+    --accent: #7fc4ec;
+    --rule: #2c2f34;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", "TeX Gyre Pagella", P052, "Book Antiqua", Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.2em;
+}
+a:hover { text-decoration-thickness: 0.12em; }
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+p { margin: 0 0 1rem; }
+sup, sub { line-height: 0; }
+cite { font-style: italic; }
+.nowrap { white-space: nowrap; }
+.muted { color: var(--muted); }
+.measure { max-width: var(--measure); }
+
+/* Header with the name and the navigation, on every page. */
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 2rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1rem;
+}
+.site-name {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.03em;
+}
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin-left: auto;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.4em;
+}
+
+/* main also carries .wrap, so only its vertical padding is set here. */
+main.wrap {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 1.25rem;
+}
+
+/* Section headings in small capitals, as in the CV. */
+h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.04em;
+  margin: 2.75rem 0 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  margin: 1.5rem 0 0.6rem;
+}
+
+.lead { font-size: 1.1rem; }
+
+/* Home page: introduction beside the figure of Lee–Yang zeros. */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  gap: 3.5rem;
+  align-items: start;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.4rem;
+}
+.position {
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+}
+.zeros { margin: 0.25rem 0 0; }
+.zeros svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.zeros .axis { stroke: var(--rule); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.zeros .unit { fill: none; stroke: var(--muted); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.zeros .zero { fill: var(--accent); }
+.zeros .one { fill: var(--paper); stroke: var(--ink); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
+.zeros text { fill: var(--muted); font-size: 15px; font-style: italic; }
+.zeros figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.recent { list-style: none; margin: 0 0 1rem; padding: 0; }
+.recent li { margin: 0 0 0.75rem; }
+
+address { font-style: normal; margin-bottom: 1rem; }
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+/* Papers page: one block per paper, with its description. */
+.paper {
+  max-width: var(--measure);
+  margin: 0 0 2.25rem;
+}
+.paper h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.35;
+  margin: 0 0 0.35rem;
+}
+.paper .authors,
+.paper .venue {
+  color: var(--muted);
+  margin: 0;
+}
+.paper .venue { margin-bottom: 0.6rem; }
+.paper .venue a { overflow-wrap: anywhere; }
+.paper .summary { margin: 0; }
+
+/* Dated entries, with the dates in a left column. */
+.entries {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  column-gap: 1.25rem;
+  row-gap: 0.75rem;
+  max-width: 46rem;
+  margin: 0;
+}
+.entries dt { grid-column: 1; color: var(--muted); }
+.entries dd { grid-column: 2; margin: 0; }
+.entries dd p { margin: 0; }
+
+/* Courses on the teaching page. */
+.courses { list-style: none; margin: 0; padding: 0; max-width: var(--measure); }
+.courses li { margin: 0 0 0.9rem; }
+.courses .course { margin: 0; }
+.courses .code { color: var(--muted); margin-left: 0.5rem; }
+.courses .terms { margin: 0; color: var(--muted); }
+.unit-note { color: var(--muted); margin-top: -0.5rem; }
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 3rem;
+}
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem 2rem;
+  padding-top: 1.25rem;
+  padding-bottom: 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 46rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .zeros { max-width: 15rem; }
+}
+
+@media (max-width: 36rem) {
+  .wrap { padding-left: 1rem; padding-right: 1rem; }
+  main.wrap { padding-top: 2rem; }
+  .site-nav { margin-left: 0; }
+  .hero h1 { font-size: 1.8rem; }
+  h1 { font-size: 1.85rem; }
+  .entries { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .entries dt { margin-top: 0.8rem; }
+  .entries dt:first-child { margin-top: 0; }
+  .entries dd { grid-column: 1; }
+}
