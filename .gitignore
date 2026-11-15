@@ -1,0 +1,3 @@
+# Nextcloud sync files, kept out of the public site.
+.nextcloudsync.log
+.sync_*
