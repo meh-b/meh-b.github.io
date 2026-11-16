@@ -6,6 +6,7 @@
   --muted: #5c5f66;
   --accent: #07608f;
   --rule: #dfe0e3;
+  --quote-rule: #c4c7cc;
   --measure: 40rem;
   color-scheme: light dark;
 }
@@ -16,6 +17,7 @@
     --muted: #a3a7ad;
     --accent: #7fc4ec;
     --rule: #2c2f34;
+    --quote-rule: #4a4e55;
   }
 }
 
@@ -237,6 +239,27 @@ address { font-style: normal; margin-bottom: 1rem; }
 }
 .notes .meta { display: block; color: var(--muted); }
 
+/* Essays: long-form writing with block quotations. */
+.prose { max-width: var(--measure); }
+.prose section + section h2 { margin-top: 3rem; }
+.prose p { margin-bottom: 1.15rem; }
+.prose blockquote {
+  margin: 1.6rem 0;
+  padding: 0.1rem 0 0.1rem 1.25rem;
+  border-left: 3px solid var(--quote-rule);
+}
+.prose blockquote p { margin-bottom: 0.8rem; }
+.prose blockquote p:last-child { margin-bottom: 0; }
+.prose .quotation { margin: 1.6rem 0 1.9rem; }
+.prose .quotation blockquote { margin: 0; }
+.prose .quotation figcaption {
+  margin-top: 0.6rem;
+  padding-left: calc(1.25rem + 3px);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.prose .quotation figcaption::before { content: "— "; }
+
 .site-footer {
   border-top: 1px solid var(--rule);
   margin-top: 3rem;
@@ -260,7 +283,7 @@ address { font-style: normal; margin-bottom: 1rem; }
 @media (max-width: 36rem) {
   .wrap { padding-left: 1rem; padding-right: 1rem; }
   main.wrap { padding-top: 2rem; }
-  .site-nav { margin-left: 0; }
+  .site-nav { margin-left: 0; column-gap: 1.1rem; }
   .hero h1 { font-size: 1.8rem; }
   h1 { font-size: 1.85rem; }
   .entries { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
