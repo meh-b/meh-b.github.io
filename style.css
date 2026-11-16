@@ -260,6 +260,25 @@ address { font-style: normal; margin-bottom: 1rem; }
 }
 .prose .quotation figcaption::before { content: "— "; }
 
+/* Poems: lines kept as written. A line too long for the screen
+   continues indented below, so it still reads as one line. */
+.poem-index { margin: 0 0 3.25rem; }
+.poem {
+  max-width: 36rem;
+  margin: 0 0 4.5rem;
+}
+.poem h2 {
+  font-size: 1.45rem;
+  font-variant-caps: normal;
+  letter-spacing: 0;
+  line-height: 1.25;
+  margin: 0 0 1.25rem;
+}
+.poem p {
+  margin: 0 0 1.5em;
+  text-indent: 1.5em hanging each-line;
+}
+
 .site-footer {
   border-top: 1px solid var(--rule);
   margin-top: 3rem;
